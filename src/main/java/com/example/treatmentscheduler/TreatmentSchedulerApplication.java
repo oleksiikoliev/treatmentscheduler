@@ -1,15 +1,22 @@
 package com.example.treatmentscheduler;
 
+import com.example.treatmentscheduler.service.TreatmentTaskScheduler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-@EnableScheduling
 public class TreatmentSchedulerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TreatmentSchedulerApplication.class, args);
+
+        ApplicationContext context = SpringApplication.run(TreatmentSchedulerApplication.class, args);
+
+        // Retrieve the TreatmentTaskScheduler bean from the context
+        TreatmentTaskScheduler scheduler = context.getBean(TreatmentTaskScheduler.class);
+
+        // Call processNewPlans() method to schedule tasks
+        scheduler.processNewPlans();
     }
 
 }

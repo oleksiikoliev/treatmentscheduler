@@ -79,13 +79,30 @@ The service logic is validated in the `TreatmentTaskSchedulerTest` class:
    mvn spring-boot:run
    ```
 
-3. **Running Tests**:  
-   Execute the tests to validate the logic:
+3. **Two Ways to Check Application Functionality**:
+
+   - **Option 1**: Start the application using the command:
+
+     ```bash
+     mvn spring-boot:run
+     ```
+
+     This will initialize the application and begin processing treatment plans.
+
+   - **Option 2**: Run the unit test to verify task generation logic:
+
+     ```bash
+     mvn test -Dtest=TreatmentTaskSchedulerTest#testFuturePlanTaskGeneration
+     ```
+
+     This test confirms that the task generation logic works as expected by creating tasks for a future-dated plan.
+
+4. **Running All Tests**:  
+   Execute all tests to validate the logic:
 
    ```bash
    mvn test
    ```
-
 ---
 
 ## **Summary**
